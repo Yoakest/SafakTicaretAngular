@@ -1,0 +1,22 @@
+<mat-dialog-content style="margin-top: 20px;">
+    <h2>{{data.name}} İşlemlerine Rol Atama</h2>
+    <p>İlgili sayfaya rol atamaları yapabilirsiniz.</p>
+</mat-dialog-content>
+
+<mat-dialog-content>
+    <mat-selection-list #roles>
+        <mat-list-option *ngFor="let role of typeDatas.datas" color="warn" [value]="[role.id, role.endpoint, role.name]"
+            [selected]="role.selected">
+            {{role.name}}
+        </mat-list-option>
+    </mat-selection-list>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" [mat-dialog-close]="data" tabindex="1" (click)="assingRoles(roles)">
+        Rolleri Ata
+    </button>
+    <button mat-raised-button (click)="close()">İPTAL</button>
+</mat-dialog-actions>

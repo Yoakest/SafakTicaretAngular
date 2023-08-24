@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">SafakTicaret</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="">Ana Sayfa</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="products">Ürünler</a>
+        </li>
+
+        <!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="basket">Alışveriş Sepeti</a>
+        </li>  -->
+      </ul>
+
+      <a class="btn btn-outline-success me-1" aria-current="page" routerLink="login"
+        *ngIf="!authService.isAutheticated">Giriş Yap</a>
+
+      <a class="btn btn-outline-warning me-5" aria-current="page" routerLink="register"
+        *ngIf="!authService.isAutheticated">Kayıt Ol</a>
+
+      <a class="btn btn-outline-warning me-5" aria-current="page" routerLink="" (click)="logout()"
+        *ngIf="authService.isAutheticated">Çıkış Yap</a>
+
+
+      <!-- <form class="d-flex" role="search">
+         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> 
+        <button class="btn btn-outline-success" type="submit">Sepet</button>
+      </form> -->
+
+
+      <div class="d-flex">
+        <button type="button" class="btn btn-primary" data-bs-target="#exampleModal" (click)="loadComponent()"
+          [disabled]="!authService.isAutheticated">
+          Sepet
+        </button>
+      </div>
+
+      <a class="btn btn-outline-warning ms-1" routerLink="admin" *ngIf="authService.isAutheticated">Admin</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+<ngx-spinner size="default" name="data-loading" type="square-loader"></ngx-spinner>
+<ngx-spinner size="default" name="updating" type="ball-running-dots"></ngx-spinner>
+<ngx-spinner size="default" name="page-loading" type="square-jelly-box"></ngx-spinner>
+
+
+<!-- <app-baskets></app-baskets> -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <ng-template appDynamicLoadComponent></ng-template>
+  </div>
+</div>

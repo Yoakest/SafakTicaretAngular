@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-4">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+
+      <div class="mb-3">
+        <label for="userName" class="form-label">Kullanıcı Adı</label>
+        <input type="email" class="form-control" id="userName" placeholder="Kullanıcı adı" formControlName="userName"
+          [ngClass]="{'is-invalid':isSubmit && registerInfo.userName.errors}">
+        <small class="form-text" *ngIf="isSubmit && registerInfo.userName.errors?.required">Kullanıcı adı
+          zorunludur.</small>
+        <small class="form-text" *ngIf="isSubmit && registerInfo.userName.errors?.minlength">Kullanıcı adı en az 3
+          karakter olmalıdır.</small>
+      </div>
+
+      <div class="mb-3">
+        <label for="nameSurname" class="form-label">Ad Soyad</label>
+        <input type="email" class="form-control" id="nameSurname" placeholder="Ad Soyad" formControlName="nameSurname"
+          [ngClass]="{'is-invalid':isSubmit && registerInfo.nameSurname.errors}">
+        <small class="form-text" *ngIf="isSubmit && registerInfo.nameSurname.errors?.required">Ad soyad
+          zorunludur.</small>
+        <small class="form-text" *ngIf="isSubmit && registerInfo.nameSurname.errors?.minlength">Ad soyad en az 3
+          karakter olmalıdır.</small>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email"
+          [ngClass]="{'is-invalid':isSubmit && registerInfo.email.errors}">
+        <small class="form-text" *ngIf="isSubmit && registerInfo.email.errors?.required">Email zorunludur.</small>
+        <small class="form-text" *ngIf="isSubmit && registerInfo.email.errors?.email">Geçerli bir email adresi
+          giriniz.</small>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Parola</label>
+        <input type="password" class="form-control" id="password" placeholder="Parola" formControlName="password"
+          [ngClass]="{'is-invalid':isSubmit && registerInfo.password.errors}">
+        <small class="form-text" *ngIf="isSubmit && registerInfo.password.errors?.required">Parola zorunludur.</small>
+        <small class="form-text" *ngIf="isSubmit && registerInfo.password.errors?.minlength">Parola en az 6 karakter
+          olmalıdır.</small>
+      </div>
+
+      <div class="mb-3">
+        <label for="rePassword" class="form-label">Parola</label>
+        <input type="password" class="form-control" id="rePassword" placeholder="Parola" formControlName="rePassword"
+          [ngClass]="{'is-invalid': (isSubmit && registerInfo.rePassword.errors) || registerInfo.password.value != registerInfo.rePassword.value }">
+        <small class="form-text" *ngIf="isSubmit && registerInfo.rePassword.errors?.required">Parola tekrar
+          zorunludur.</small>
+        <small class="form-text"
+          *ngIf="isSubmit &&  !registerInfo.rePassword.errors?.required && registerInfo.password.value != registerInfo.rePassword.value"
+          style="color:red">Parolalar aynı olmalıdır.</small>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Kayıt ol</button>
+
+    </form>
+  </div>
+  <div class="col-md-3"></div>
+</div>

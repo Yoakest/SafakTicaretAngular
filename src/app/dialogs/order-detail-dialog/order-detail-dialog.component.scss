@@ -1,0 +1,20 @@
+.mat-success {
+    background-color: green;
+    color: #fff;
+}
+
+.not-completed {
+    --bs-btn-color: #830303;
+    --bs-btn-border-color: #830303;
+    --bs-btn-hover-color: #830303;
+    --bs-btn-hover-border-color: #830303;
+    --bs-btn-bg: #e8a6a6;
+    width: 222px;
+    cursor: default;
+    margin-left: 8px;
+}
+
+.mat-close{
+    background-color: darkslategrey;
+    color: #fff;
+}

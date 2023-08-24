@@ -1,0 +1,22 @@
+import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
+
+@Component({
+  selector: 'app-customers',
+  templateUrl: './customers.component.html',
+  styleUrls: ['./customers.component.scss']
+})
+export class CustomersComponent extends BaseComponent implements OnInit {
+
+
+
+  constructor(spinner: NgxSpinnerService) {
+    super(spinner);
+  }
+
+  ngOnInit(): void {
+    // this.showSpinnner(SpinnerType.updating)
+    // setTimeout(() => this.hideSpinner(SpinnerType.updating), 2000)
+  }
+}

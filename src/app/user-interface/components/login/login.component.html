@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+
+        <div class="mb-3">
+            <label for="userName" class="form-label">Kullanıcı Adı veya Email </label>
+            <input #txtUserNameOrEmail class="form-control" id="userName" placeholder="Kullanıcı adı veya email"
+                value="admin">
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Parola</label>
+            <input #Password type="password" class="form-control" id="password" placeholder="Parola" value="123qweASD">
+        </div>
+
+        <div class="container">
+            <div style="display: flex; gap: 10px;">
+                <button type="submit" class="btn btn-primary"
+                    (click)="login(txtUserNameOrEmail.value, Password.value)">Giriş yap</button>
+                <asl-google-signin-button type='standard' size='large' theme="filled_blue"
+                    text="signin_with"></asl-google-signin-button>
+            </div>
+            <button type="submit" class="btn mybutton-bottom btn-sm" style="margin-top: 3px;"
+                routerLink="/forgetpassword">Şifremi unuttum</button>
+        </div>
+        <br><br>
+        <p>kullanıcı adı: admin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;şifre:123qweASD</p>
+        <p>kullanıcı adı: moderator &nbsp;&nbsp;şifre:123qweASD</p>
+        <p>kullanıcı adı: user &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; şifre:123qweASD</p>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>

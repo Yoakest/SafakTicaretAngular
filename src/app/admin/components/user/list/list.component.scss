@@ -1,0 +1,40 @@
+.completed {
+    --bs-btn-color: #078303;
+    --bs-btn-border-color: #078303;
+    --bs-btn-hover-color: #078303;
+    --bs-btn-hover-border-color: #078303;
+    --bs-btn-bg: #a8e8a6;
+    width: 117;
+    cursor: default;
+}
+
+.not-completed {
+    --bs-btn-color: #830303;
+    --bs-btn-border-color: #830303;
+    --bs-btn-hover-color: #830303;
+    --bs-btn-hover-border-color: #830303;
+    --bs-btn-bg: #e8a6a6;
+    width: 117px;
+    cursor: default;
+}
+
+.mybutton-bottom {
+    border-bottom: 2px solid #806db6;
+    color: #806db6;
+}
+
+.TFTrue {
+    font-size: 24px;
+    color: rgb(52, 143, 52);
+    margin-left: 32px;
+}
+
+.TFFalse {
+    font-size: 24px;
+    color: rgb(226, 70, 70);
+    margin-left: 32px;
+}
+
+.Rol {
+    font-size: 24px;
+}

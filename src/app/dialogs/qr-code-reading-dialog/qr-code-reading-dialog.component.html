@@ -1,0 +1,18 @@
+<div style="margin: 10px;" class="table-wrapper">
+    <h2>Ürün QrCode Okuma</h2>
+    <p>Ürün Adı: <strong>{{product.Name}}</strong></p>
+
+    <mat-form-field class="product-create">
+        <mat-label>Stok Güncelle</mat-label>
+        <input matInput type="number" min="0" [value]="product.Stock ? product.Stock: 0" #textStock>
+        <button matSuffix aria-label="stock" class="button" (click)="updateStock()">
+            <i class="fa-solid fa-boxes-stacked stock"></i>
+        </button>
+
+    </mat-form-field>
+
+    <ngx-scanner-qrcode #scanner="scanner" (event)="scanned($event)" (click)="startCam()"></ngx-scanner-qrcode>
+
+    <p *ngIf="scanner.isLoading">⌛ Loading...</p>
+
+</div>

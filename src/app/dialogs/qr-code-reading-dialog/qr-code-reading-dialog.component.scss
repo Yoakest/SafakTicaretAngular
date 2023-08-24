@@ -1,0 +1,18 @@
+.stock{
+    color: green;
+    font-size: 32px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.button{
+    margin-right: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-width: 2px;
+    border-color: green;
+}
+
+.table-wrapper {
+    max-height: 90vh; /* İstediğiniz maksimum yüksekliği ayarlayın */
+    overflow-y: auto; /* Kaydırma çubuğunu yatayda göster */
+}

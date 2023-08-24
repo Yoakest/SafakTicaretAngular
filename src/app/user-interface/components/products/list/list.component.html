@@ -1,0 +1,51 @@
+<div class="row ">
+    <div class="container">
+
+        <div class="card" style="width: 18rem; float: left; margin: 5px;" *ngFor="let product of products">
+
+            <div *ngIf="!product['productImages'].length">
+                <img class="card-img-top" src="assets/defaultProduct.png" alt="default" style="width: 285px; height: 285px; object-fit: cover" >
+            </div>
+            <div *ngFor="let imagelist of product['productImages']">
+
+                <ng-container *ngIf="imagelist['showcase']">
+                    <img class="card-img-top" [src]="imagelist.qrUrl"
+                        style="width: 285px; height: 285px; object-fit: cover" [alt]="imagelist['fileName']">
+                </ng-container>
+
+            </div>
+
+
+            <div class="card-body">
+                <h4 class="card-title">{{product.name}}</h4>
+
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                <p class="text-end">{{product.price| currency:"₺"}} | Stok: {{product.stock}} adet</p>
+                <a class="btn btn-success" (click)="addToBasket(product)">Sepete ekle</a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item">
+            <div class="page-link">{{currentPageNo}} / {{totalPageCount}}</div>
+        </li>
+
+        <li class="page-item"><button class="page-link" [disabled]="currentPageNo <= 1 "
+                [routerLink]="['/products',currentPageNo-1 <= 0 ? 1: currentPageNo-1]">Önceki</button></li>
+        <ng-container *ngFor="let pageNo of pageList">
+            <li class="page-item"><a class="page-link" routerLinkActive="active"
+                    [routerLink]="['/products',pageNo]">{{pageNo}}</a></li>
+        </ng-container>
+        <li class="page-item"><button class="page-link" [disabled]="currentPageNo >= totalPageCount "
+                [routerLink]="['/products',currentPageNo+1 >= totalPageCount ? totalPageCount: currentPageNo+1]">Sonraki</button>
+        </li>
+    </ul>
+</nav>

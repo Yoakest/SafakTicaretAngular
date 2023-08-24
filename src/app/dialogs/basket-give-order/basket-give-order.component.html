@@ -1,0 +1,9 @@
+<mat-dialog-content>
+    <p>Siparişinizi tamamlamak istediğinize emin misiniz?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" [mat-dialog-close]="data" tabindex="1">
+        EVET
+    </button>
+    <button mat-raised-button (click)="close()">İPTAL</button>
+</mat-dialog-actions>
